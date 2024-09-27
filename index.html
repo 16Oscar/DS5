@@ -3,53 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario sin usar evento submit - Texto Invertido</title>
+  <title>Texto Invertido y Cambio de Color CSS</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    .form-section {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .response-wrapper {
+      padding: 10px;
+      display: inline-block;
+      border-radius: 5px;
+      transition: color 0.5s ease;
+    }
+
+    
+    .texto-verde {
+      color: green;
+    }
+    .texto-grisocuro {
+      color: darkgray;
+    }
+    .texto-azuloscuro {
+      color: darkblue;
+    }
+  </style>
 </head>
 <body>
 
-  
-  <form id="form">
-    <label for="input-text">Texto a invertir: </label>
-    <input type="text" id="input-text" name="input-text">
-  </form>
+  <h1>Formulario con texto invertido y opciones de colores</h1>
 
-  
-  <p>Texto invertido: <span id="reversed-span"></span></p>
-
-  
-  <script>
-    const App = (() => {
-
-      const htmlElements = {
-        inputText: document.querySelector('#input-text'),
-        reversedSpan: document.querySelector('#reversed-span'),
-      };
-
-      const handlers = {
-        onInputChange(e) {
-          const inputValue = e.target.value;
-          
-          const reversedValue = inputValue.split('').reverse().join('');
+  <section class="form-section">
+    <form id="form">
+      <label for="input-text">Texto a invertir: </label>
+      <input type="text" id="input-text" name="input-text">
+      <br><br>
+      <label for="color-select">Escoge un color: </label>
+      <select id="color-select" name="color-select">
         
-          htmlElements.reversedSpan.textContent = reversedValue;
-        }
-      };
+        <option value="texto-verde">Verde</option>
+        <option value="texto-grisocuro">Gris Oscuro</option>
+        <option value="texto-azuloscuro">Azul Oscuro</option>
+      </select>
+    </form>
+  </section>
 
-      const bindEvents = () => {
-        htmlElements.inputText.addEventListener('input', handlers.onInputChange);
-      };
+  <p>Texto invertido: <span id="reversed-span" class="response-wrapper"></span></p>
 
-      return {
-        init() {
-          bindEvents();
-        }
-      };
+  <script src="C:\Users\obarr\Documents\Laboratorio 4 - II\js\app.js"></script>
 
-    })();
-
-    
-    App.init();
   </script>
-  
+
 </body>
 </html>
+
+
