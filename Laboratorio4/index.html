@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario sin usar evento submit - Texto Invertido</title>
+</head>
+<body>
+
+  
+  <form id="form">
+    <label for="input-text">Texto a invertir: </label>
+    <input type="text" id="input-text" name="input-text">
+  </form>
+
+  
+  <p>Texto invertido: <span id="reversed-span"></span></p>
+
+  
+  <script>
+    const App = (() => {
+
+      const htmlElements = {
+        inputText: document.querySelector('#input-text'),
+        reversedSpan: document.querySelector('#reversed-span'),
+      };
+
+      const handlers = {
+        onInputChange(e) {
+          const inputValue = e.target.value;
+          
+          const reversedValue = inputValue.split('').reverse().join('');
+        
+          htmlElements.reversedSpan.textContent = reversedValue;
+        }
+      };
+
+      const bindEvents = () => {
+        htmlElements.inputText.addEventListener('input', handlers.onInputChange);
+      };
+
+      return {
+        init() {
+          bindEvents();
+        }
+      };
+
+    })();
+
+    
+    App.init();
+  </script>
+  
+</body>
+</html>

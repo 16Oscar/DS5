@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de votación</title>
+  <link rel="stylesheet" href="Clases.css">
+</head>
+<body>
+
+  <h1>Votación</h1>
+
+  <div>
+    <label for="candidate-name">Nombre del Candidato: </label>
+    <input type="text" id="candidate-name" placeholder="Nombre">
+
+    <label for="candidate-color">Escoge un color: </label>
+    <select id="candidate-color">
+      <option value="random">Aleatorio</option>
+      <option value="#FF5733">Rojo </option>
+      <option value="#33FF57">Verde </option>
+      <option value="#3357FF">Azul </option>
+    </select>
+
+    <button id="add-candidate">Agregar Candidato</button>
+  </div>
+
+  <ul id="candidates-list"></ul>
+
+  <div class="bar-chart" id="bar-chart"></div>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>

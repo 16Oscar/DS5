@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solución de Problemas Matemáticos con JavaScript</title>
+</head>
+<body>
+  <h1>Resolver Problemas Matemáticos con JavaScript</h1>
+
+  <h2>1. Palíndromo de Doble Base</h2>
+  <input type="number" id="numPalindromo" placeholder="Introduce un número">
+  <button onclick="verificarPalindromo()">Verificar</button>
+  <p id="resultadoPalindromo"></p>
+
+  <h2>2. Contar Caracteres</h2>
+  <input type="text" id="cadena" placeholder="Introduce una cadena">
+  <button onclick="contarCaracteresHTML()">Contar</button>
+  <p id="resultadoCaracteres"></p>
+
+  <h2>3. Verificar Año Bisiesto</h2>
+  <input type="number" id="anioBisiesto" placeholder="Introduce un año">
+  <button onclick="verificarBisiesto()">Verificar</button>
+  <p id="resultadoBisiesto"></p>
+
+  <h2>4. Sumatoria de Primos</h2>
+  <input type="number" id="numPrimos" placeholder="Introduce un número">
+  <button onclick="sumarPrimosHTML()">Sumar</button>
+  <p id="resultadoPrimos"></p>
+
+  <script>
+    // Función para verificar si un número es un palíndromo en una base
+    function esPalindromo(cadena) {
+      return cadena === cadena.split('').reverse().join('');
+    }
+
+    // Función para verificar si el número es un palíndromo de doble base (decimal y binario)
+    function palindromoDobleBase(num) {
+      const decimal = num.toString(); // Convertir a cadena en base 10
+      const binario = num.toString(2); // Convertir a cadena en base 2
+
+      return esPalindromo(decimal) && esPalindromo(binario);
+    }
+
+    // Función que verifica el palíndromo en el HTML
+    function verificarPalindromo() {
+      const num = parseInt(document.getElementById("numPalindromo").value);
+      const resultado = palindromoDobleBase(num) ? "Es un palíndromo de doble base." : "No es un palíndromo de doble base.";
+      document.getElementById("resultadoPalindromo").innerText = resultado;
+    }
+
+    // Función para contar caracteres de una cadena
+    function contarCaracteres(cadena) {
+      let conteo = {};
+
+      // Recorremos cada letra y las contamos
+      for (let i = 0; i < cadena.length; i++) {
+        let letra = cadena[i];
+        conteo[letra] = (conteo[letra] || 0) + 1;
+      }
+
+      return conteo;
+    }
+
+    // Función para mostrar los caracteres contados en HTML
+    function contarCaracteresHTML() {
+      const cadena = document.getElementById("cadena").value;
+      const resultado = contarCaracteres(cadena);
+      document.getElementById("resultadoCaracteres").innerText = JSON.stringify(resultado);
+    }
+
+    // Función para verificar si un año es bisiesto o no
+    function esBisiesto(anio) {
+      return (anio % 4 === 0 && anio % 100 !== 0) || anio % 400 === 0;
+    }
+
+    // Función para mostrar en HTML si el año es bisiesto o no
+    function verificarBisiesto() {
+      const anio = parseInt(document.getElementById("anioBisiesto").value);
+      const resultado = esBisiesto(anio) ? "Es un año bisiesto." : "No es un año bisiesto.";
+      document.getElementById("resultadoBisiesto").innerText = resultado;
+    }
+
+    // Función para verificar si un número es primo
+    function esPrimo(num) {
+      if (num <= 1) return false;
+      if (num === 2) return true;
+      if (num % 2 === 0) return false;
+
+      for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) return false;
+      }
+
+      return true;
+    }
+
+    // Función para sumar todos los primos por debajo de un número
+    function sumarPrimos(n) {
+      let suma = 0;
+
+      for (let i = 2; i <= n; i++) {
+        if (esPrimo(i)) {
+          suma += i;
+        }
+      }
+
+      return suma;
+    }
+
+    // Función para mostrar la sumatoria de primos en HTML
+    function sumarPrimosHTML() {
+      const num = parseInt(document.getElementById("numPrimos").value);
+      const resultado = sumarPrimos(num);
+      document.getElementById("resultadoPrimos").innerText = `La sumatoria es ${resultado}.`;
+    }
+  </script>
+</body>
+</html>

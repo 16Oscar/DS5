@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+  }
+  
+  #candidates-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .candidate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .bar-chart {
+    width: 80%;
+    margin: 30px auto;
+  }
+  
+  .bar {
+    height: 30px;
+    margin: 5px 0;
+    background-color: lightblue;
+    text-align: left;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .bar span {
+    margin-left: 10px;
+  }
+  
